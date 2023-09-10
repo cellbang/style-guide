@@ -1,7 +1,7 @@
 # The Cellbang Style Guide
 
 [![npm version](https://img.shields.io/npm/v/@celljs/style-guide.svg?style=flat)](https://www.npmjs.com/package/@celljs/style-guide)
-[![npm downloads](https://img.shields.io/npm/dm/@celljs/style-guide.svg?style=flat)](https://www.npmjs.com/org/@celljs/style-guide)
+[![npm downloads](https://img.shields.io/npm/dm/@celljs/style-guide.svg?style=flat)](https://www.npmjs.com/package/@celljs/style-guide)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/cellbang/style-guide/blob/master/LICENSE)
 
 
