@@ -13,7 +13,7 @@
   "prettier": "./prettier/compact",
   "scripts": {
     "lint": "eslint . && prettier -c **/*.js -w",
-    "release": "pnpm run test && changelogen --release && npm publish && git push --follow-tags",
+    "release": "pnpm run test && changelogen --release && npm publish --registry=https://registry.npmjs.org --access=public && git push --follow-tags",
     "test": "pnpm run lint"
   },
   "dependencies": {
