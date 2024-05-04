@@ -1,11 +1,14 @@
 /**
- * This is all ESLint config files.
+ * This is all ESLint config files for javascript.
  */
-module.exports = {
-  extends: [
-    require.resolve('./base'),
-    require.resolve('./errors'),
-    require.resolve('./warnings'),
-    require.resolve('./xss')
-  ]
-};
+const baseConfig = require('./base');
+const errorConfig = require('./errors');
+const warningConfig = require('./warnings');
+const xssConfig = require('./xss');
+
+module.exports = [
+  ...baseConfig,
+  ...errorConfig,
+  ...warningConfig,
+  ...xssConfig
+];

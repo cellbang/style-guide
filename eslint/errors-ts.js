@@ -1,6 +1,10 @@
 /**
- * This is the errors only for typescript ESLint config files.
+ * This is the errors ESLint config files.
  */
-module.exports = {
-  extends: ['plugin:@typescript-eslint/recommended-requiring-type-checking']
-};
+const tsConfig = require('@typescript-eslint/eslint-plugin');
+const { FlatCompat } = require('@eslint/eslintrc');
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+  recommendedConfig: tsConfig.configs['recommended-requiring-type-checking']
+});
+module.exports = [...compat.config({})];

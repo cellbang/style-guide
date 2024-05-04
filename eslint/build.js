@@ -1,6 +1,7 @@
 /**
  * This is the build ESLint config files.
  */
-module.exports = {
-  extends: [require.resolve('./base'), require.resolve('./errors')]
-};
+const baseConfig = require('./base');
+const errorConfig = require('./errors');
+
+export default [...baseConfig, ...errorConfig];
