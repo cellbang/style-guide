@@ -53,16 +53,15 @@ yarn add --dev @celljs/style-guide
 >
 > 请参阅：https://eslint.org/docs/user-guide/getting-started#installation-and-usage
 
-此 ESLint 配置被设计为可组合的。
+此 ESLint 配置被设计为可组合的，且要求 ESLint 版本为：^9.0.0。
 
 以下基本配置可用。您可以使用其中之一或两者
-配置，但它们应该始终位于 `extends` 中的第一个：
+配置，但它们应该始终位于配置数组中的第一个：
 
 - `@celljs/style-guide/eslint/base`
 - `@celljs/style-guide/eslint/errors`
 
 请注意，您可以设置配置范围，以便配置仅针对特定文件。
-有关更多信息，请参阅：[使用`覆盖`的范围配置](#使用`overrides`进行范围配置)。
 
 以下附加配置可用：
 
@@ -80,58 +79,24 @@ yarn add --dev @celljs/style-guide
 例如，一个简单的项目复用 ESLint 配置，配置如下
 
 ```js
-module.exports = {
-  extends: [
-    require.resolve('@celljs/style-guide/eslint')
-  ]
-};
+module.exports = [
+  ...require.resolve('@celljs/style-guide/eslint')
+];
 ```
 当然，也可以更具情况选择具体级别的一个或多个配置。
+```js
+module.exports = [
+  ...require.resolve('@celljs/style-guide/eslint/base'),
+  ...require.resolve('@celljs/style-guide/eslint/errors')
+];
+```
 
 如果是一个纯 javascript 项目，配置如下：
 
 ```js
-module.exports = {
-  extends: [
-    require.resolve('@celljs/style-guide/eslint/javascript')
-  ]
-};
-```
-
-
-### 使用 `overrides` 进行范围配置
-
-ESLint 配置的范围可以包括或者排除特定路径。这确保了
-规则不会`渗透`到那些规则不适用的地方。
-
-在此示例中，Jest 规则仅应用于与 Jest 匹配的文件
-的默认测试匹配模式。
-
-```js
-module.exports = {
-  extends: [require.resolve('@celljs/style-guide/eslint')],
-  overrides: [
-    {
-      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
-      extends: [require.resolve('@celljs/style-guide/eslint/jest')],
-    },
-  ],
-};
-```
-
-#### 关于文件扩展名的说明
-
-默认情况下，所有 TypeScript 规则的范围仅限于以 `.ts` 和 `.tsx` 结尾的文件。
-
-但是，当使用覆盖功能时，必须包含文件扩展名，否则 ESLint 将
-只包含 `.js` 文件。
-
-```js
-module.exports = {
-  overrides: [
-    { files: [`directory/**/*.[jt]s?(x)`], rules: { 'my-rule': 'off' } },
-  ],
-};
+module.exports = [
+  ...require.resolve('@celljs/style-guide/eslint/javascript')
+];
 ```
 
 ## TypeScript
