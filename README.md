@@ -72,7 +72,6 @@ yarn add --dev @celljs/style-guide
 - `@celljs/style-guide/eslint/warnings`（警告级别的配置）
 - `@celljs/style-guide/eslint/xxs`（跨站脚本攻击相关的配置）
 
-> 您需要使用 `require.resolve` 为 ESLint 提供绝对路径，
 > 由于围绕 ESLint 配置解析的问题（请参阅
 > [eslint/eslint#9188](https://github.com/eslint/eslint/issues/9188)。
 
@@ -80,14 +79,14 @@ yarn add --dev @celljs/style-guide
 
 ```js
 module.exports = [
-  ...require.resolve('@celljs/style-guide/eslint')
+  ...require('@celljs/style-guide/eslint')
 ];
 ```
 当然，也可以更具情况选择具体级别的一个或多个配置。
 ```js
 module.exports = [
-  ...require.resolve('@celljs/style-guide/eslint/base'),
-  ...require.resolve('@celljs/style-guide/eslint/errors')
+  ...require('@celljs/style-guide/eslint/base'),
+  ...require('@celljs/style-guide/eslint/errors')
 ];
 ```
 
@@ -95,7 +94,7 @@ module.exports = [
 
 ```js
 module.exports = [
-  ...require.resolve('@celljs/style-guide/eslint/javascript')
+  ...require('@celljs/style-guide/eslint/javascript')
 ];
 ```
 
